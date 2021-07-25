@@ -1,14 +1,31 @@
 class ApplicationController < ActionController::Base
-#    before_action :configure_permitted_parameters, if: :devise_controller?
-#     #Prevent CSRF attacks by raising an exception.
-#     #For APIs, you sau want to use :null_session instead.
-#     protect_from_forgery with: :exception
+    protect_from_forgery prepend: true, with: :exception      
+    skip_before_action :verify_authenticity_token 
+    
+    
+    # # Probably add more here to restrict users from directly accessing the back-office
+    # # def require_admin # This is from Blazer..
+    # #     # depending on your auth, something like...
+    # #     redirect_to root_path unless current_user && current_user.superadmin?
+    # # end
 
-#     #To permit new custom attributes to be verified as attributes permitted by the form
-#     def configure_permitted_parameters
-#         devise_parameter_sanitizer.for(:sign_up){ |u| u.permit(:first_name, :last_name, :email, :password, :password_configuration)}
+    protected
+    #Jorge - redirecto to home after signin or signup
+    def after_sign_in_path_for(resource)
+        '/index'
+    end
 
-#     end
-    protect_from_forgery prepend: true, with: :exception
-    skip_before_action :verify_authenticity_token
+    def after_sign_up_path_for(resource)
+        '/index' 
+    end
+
+    def is_employee?
+        if !current_user || !current_user.employee
+            redirect_to '/index', alert: "You need to be a employee"
+        elsif  current_user and (current_user.superadmin_role? or current_user.employee) 
+        else
+            redirect_to '/index', alert: "You need to be a employee"
+        end
+    end
+
 end

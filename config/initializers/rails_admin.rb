@@ -1,15 +1,25 @@
+require Rails.root.join('lib', 'rails_admin', 'map.rb')
+require Rails.root.join('lib', 'rails_admin', 'watson.rb')
+
 RailsAdmin.config do |config|
+  config.main_app_name = ["Rocket Elevators", "BackOffice"]
 
   ### Popular gems integration
 
-  ## == Devise ==
+  # == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
 
-  ## == CancanCan ==
-  # config.authorize_with :cancancan
+  # == CancanCan ==
+  config.authorize_with :cancancan
+
+  # Charts Tab in nav-bar
+  config.navigation_static_label = "Graphs"
+  config.navigation_static_links = {
+    'Charts' => '/blazer'
+  }
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -22,7 +32,8 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
-
+ 
+  
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -33,12 +44,12 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    # tools
+    map
+    watson
 
     ## With an audit adapter, you can add:
     # history_index
     # history_show
   end
-  config.navigation_static_links = {
-    'Charts' => '/charts'
-  }
 end

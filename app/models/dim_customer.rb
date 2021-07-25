@@ -1,2 +1,2 @@
-class DimCustomer < DwhRecord
+class DimCustomer < WarehouseRecord
 end

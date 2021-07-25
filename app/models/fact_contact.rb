@@ -1,2 +1,2 @@
-class FactContact < DwhRecord
+class FactContact < WarehouseRecord
 end

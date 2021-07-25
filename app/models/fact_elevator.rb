@@ -1,2 +1,2 @@
-class FactElevator < DwhRecord
+class FactElevator < WarehouseRecord
 end

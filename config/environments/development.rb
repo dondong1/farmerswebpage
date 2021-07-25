@@ -26,7 +26,6 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
@@ -35,6 +34,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  #Here is an example of default_url_options appropriate for a development environment
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -59,6 +61,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Blazer for development environment
+  ENV["BLAZER_DATABASE_URL"] = "postgres://codeboxx:Codeboxx1!@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/CristianeSanti$eSantiago"
 
+  config.allow_concurrency = true
 end

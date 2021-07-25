@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "rocket_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "RailsApp_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -91,4 +91,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Blazer 
+  ENV["BLAZER_USERNAME"] = "andrew"
+  ENV["BLAZER_PASSWORD"] = "secret"
+
+  # Blazer for development environment
+  ENV["BLAZER_DATABASE_URL"] = "postgres://codeboxx:Codeboxx1!@codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com/CristianeSanti$eSantiago"
+
 end

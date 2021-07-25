@@ -3,10 +3,50 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+# Figaro
+gem 'figaro'
+
+# For converting addresses to long/lat coords for the GoogleMaps API
+gem 'geocoder'
+
+# For JS
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.0.0.beta1'
+
+# Fonts
+gem "font-awesome-rails"
+
+# Authentication
+gem 'devise'
+
+# Message Alert
+gem 'toastr-rails'
+
+# Authorization
+gem 'cancancan'
+
+# Multiverse
+gem 'multiverse'
+
+#This gem is a library that generates fake data
+gem 'faker'
+
+# Chartkick
+gem 'chartkick'
+
+# ADMIN SECTION
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin_rollincode', '~> 1.0'
+
+# Zendesk API
+gem 'zendesk_api'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -26,7 +66,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'json'
+gem 'sendgrid-ruby'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -36,9 +77,22 @@ gem 'json'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Using Queries & Info From DB To Create The Charts
+gem 'blazer'
+
+#facilitates the communication  with Dropbox API v2.
+gem 'dropbox_api'
+
+gem 'nokogiri'
+
+gem 'rake'
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
@@ -48,13 +102,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  #capistrano stuff
   gem 'capistrano', '~> 3.10', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
-
+  gem 'ed25519', '~> 1.2', '>= 1.2.4'
+  gem 'bcrypt_pbkdf', '~> 1.0.0.alpha1'
 end
 
 group :test do
@@ -68,17 +122,21 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'bootstrap-sass', '~> 3.3.4'
-gem 'font-awesome-sass', '~> 4.7.0'
-gem 'jquery-ui-rails'
-gem 'bootstrap-social-rails'
-gem 'faker'
-gem 'devise'
-gem 'csv'
-gem 'ed25519', '~> 1.2' 
-gem 'bcrypt_pbkdf', '~>1' 
-gem 'rails_admin', '~> 2.0'
-gem 'multiverse'
-gem 'pg' 
-gem 'chartkick'
-gem 'highcharts-rails'
+# Using twilio API
+gem 'twilio-ruby'
+
+# Using slack
+gem 'slack-notifier'
+
+# Using Ibm_watson
+gem 'ibm_watson'
+
+# Using open_weather
+gem 'open_weather'
+
+# Using rest-client
+gem 'rest-client'
+# Using 
+gem 'uri'
+gem 'openssl'
+gem 'json'

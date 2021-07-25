@@ -12,22 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require toastr
  */
- @import "bootstrap-sprockets";
+
  @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "pages";
- @import "essentials";
- @import "header-1";
- @import "layerslider";
- @import "skin";
+ @import "bootstrap.min";
  @import "extralayers";
  @import "settings";
- @import "blue";
+ @import "essentials";
  @import "layout";
-
-
-
- 
- 
+ @import "lightgrey";
+ @import "header-1";
+ @import "blue";
+ @import "red";
+ @import "login";
+ @import "font-awesome";

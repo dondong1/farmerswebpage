@@ -1,0 +1,4 @@
+class FactIntervention < WarehouseRecord
+
+    
+end

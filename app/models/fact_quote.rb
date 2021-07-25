@@ -1,2 +1,2 @@
-class FactQuote < DwhRecord
+class FactQuote < WarehouseRecord
 end
